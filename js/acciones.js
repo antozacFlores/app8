@@ -8,17 +8,17 @@ $(document).ready(function(e) {
      function onDeviceReady(){
 		 
 		 $('#posicion').on('click',function(){
-			 getPosition ();
+			 getPosition();
 		 });
 	 }
 	 
 	  function getPosition(){
-		  var options = {
-			 enableHighAccuracy :true,
-			 maximumAge: 3600000
+		  var options={
+			 enableHighAccuracy:true,
+			 maximumAge:3600000
 	  }
 	  
-	  var watchID = navigator.geolocation.getCurrentPosition(onSucces, onError,options);
+	  var watchID=navigator.geolocation.getCurrentPosition(onSuccess, onError,options);
 	  
 	  function onSucces(position) {
 		  
@@ -27,6 +27,6 @@ $(document).ready(function(e) {
 	  };
 	  
 	     function onError(error){
-			 alert('code:'   +error.code  +'\n' + 'message:' + error.message + '\n');
+			 alert('code:'+error.code +'\n'+'message:'+error.message+'\n');
 		 }
 		 }
