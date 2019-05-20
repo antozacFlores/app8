@@ -43,6 +43,6 @@ Antozac Flores Paredes
 
 <!--Colocar icono de la app-->
 
-<icon src="imagenes/mdpi.png"/>
+<icon src="res/android/mdpi.png"/>
 
 </widget>
