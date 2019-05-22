@@ -20,7 +20,7 @@ if(navigator.geolocation){
 <div id="mapholder"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>
 
-<button onClick="cargarmap()">Cragar Mapa</button>
+<button onclick="cargarmap()">Cragar Mapa</button>
 <script type="text/javascript">
  var x=document.getElementById("demo");
   function cargarmap(){
@@ -46,7 +46,7 @@ if(navigator.geolocation){
 	  {
 		  switch(error.code)
 		  {
-			  case.error.PERMISSION_DENIED:
+			  case error.PERMISSION_DENIED:
 			  x.innerHTML="Denegada la Peticion de Geolocalizacion en el navegador."
 			  break;
 			  case error.POSITION_UNAVAILABLE:
@@ -57,7 +57,7 @@ if(navigator.geolocation){
 			 break;
 			 case errorUNKNOWN_ERROR:
 			 x.innerHTML="AOcurrido un Error Desconocido"
-			 break;<br>
+			 break;
 		  }
 	  }}
 </script>
