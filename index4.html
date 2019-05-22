@@ -20,7 +20,7 @@ if(navigator.geolocation){
 <div id="mapholder"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>
 
-<button onClick="cargarmap">Cragar Mapa</button>
+<button onclick="cargarmap">Cragar Mapa</button>
 <script type="text/javascript">
  var x=document.getElementById("demo");
   function cargarmap(){
@@ -36,11 +36,11 @@ if(navigator.geolocation){
 		  var myOptions={
 			  center:latlon,zoom :17,
 			  mapTypeld:google.maps.MapTypeld.ROADMAP,
-			  mapTypeldControl :false
+			  mapTypeControl :false,
 			  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
 		  };
 		  var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
-		  var market=new google.maos.Market({position:latlon,map:map,title:"You Are Here!"});
+		  var market=new google.maps.Marker({position:latlon,map:map,title:"You Are Here!"});
 	  }
 	  function showError(error)
 	  {
