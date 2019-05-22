@@ -2,9 +2,64 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Documento sin título</title>
+<title>Ubicacion en el Mapa de Google</title>
 </head>
-
 <body>
+<!--Se determina la Localizacion-->
+<div id="ubicacion"></div>
+<script type="text/javascript">
+if(navigator.geolocation){
+	navigator.geolocation.getCurrentPosition (mostrarUbicacion);	
+}else{alert("!ERROR¡Este Navegador No Soporta laGeolocalizacion");}
+ function refrescarUbicacion(){
+	 navigator.geolocation.watchPosition(mostrarUbicacion);}
+</script>
+
+<!--Se Escribe un Mapa Con la localizacion anterior-->
+<div id="demo"></div>
+<div id="mapholder"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFd0aiE5FttY8XRAFI9ecTSpgo2vP-qMk"></script>
+
+<button onclick="cargarmap()">Cargar mapa</button>
+<script type="text/ecmascript">
+ var x=document.getElementById("demo");
+  function cargarmap(){
+	  navigator.geolocation.getCurrentPosition (showPosition,showError);
+      function showPosition(position)
+	  {
+		  lat=position.coords.latitude;
+		  lon=position.coords.longitude;
+		  latlon =new google.maps.LatLng(lat,lon)
+		  mapholder =document.getElementById("mapholder")
+		  mapholder.style.height ='500px';
+		  mapholder.style.width ='700px';
+		  var myOptions={
+			  center:latlon,zoom :17,
+			  mapTypeld:google.maps.MapTypeld.ROADMAP,
+			  mapTypeldControl :false
+			  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+		  };
+		  var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+		  var market=new google.maos.Market({position:latlon,map:map,title:"You Are Here!"});
+	  }
+	  function showError(error)
+	  {
+		  switch(error.code)
+		  {
+			  case.error.PERMISSION_DENIED:
+			  x.innerHTML="Denegada la Peticion de Geolocalizacion en el navegador."
+			  break;
+			  case error.POSITION_UNAVAILABLE:
+			  x.innerHTML="La informacion de la localizacion no esta disponible."
+			  break;
+			 case error.TIMEOUT:
+			 x.innerHTML="El Tiempo de la Peticion ha Expirado"
+			 break;
+			 case errorUNKNOWN_ERROR:
+			 x.innerHTML="AOcurrido un Error Desconocido"
+			 break;<br>
+		  }
+	  }}
+</script>
 </body>
 </html>
